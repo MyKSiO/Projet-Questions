@@ -5,3 +5,15 @@ controllers:
 kernel:
     resource: ../src/Kernel.php
     type: annotation
+    defaults:
+        shemes: [https]     #Forcer le https sur toutes les pages
+
+#Redirection de '/' vers la page d'accueil
+homepage:
+  path: /       #Chemin à rediriger
+  controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController
+  defaults:
+    route: 'accueil'        #Chemin de redirection
+    title: 'Vous allez arriver sur la page d'accueil'       #Passage d'une query string lors de la redirection
+    keepQueryParams: true       #Conserver la query string lors de la redirection
+    permanent: true     #Redirection permanente
