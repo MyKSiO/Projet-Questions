@@ -7,11 +7,11 @@
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         <link rel="stylesheet" href="https://bootswatch.com/5/lux/bootstrap.min.css">
         {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
+            {#{{ encore_entry_link_tags('app') }} #}
         {% endblock %}
 
         {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
+            {# {{ encore_entry_script_tags('app') }} #}
         {% endblock %}
     </head>
     <body>
@@ -26,12 +26,13 @@
               <div class="collapse navbar-collapse" id="navbarColor03">
                 <ul class="navbar-nav me-auto">
                   <li class="nav-item">
-                    <a class="nav-link active" href="/boutique">Articles
+                    <a class="nav-link" href="/boutique">Articles
                     <span class="visually-hidden">(current)</span>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="/contact">Nous contacter</a>
+                    <span class="visually-hidden">(current)</span>
                   </li>
                 </ul>
               </div>
@@ -39,7 +40,14 @@
             </div>
 
         </nav>
-
+        
+        <header style="display:flex;align-items:center;justify-content:space-between;">
+          <ul>
+            <a href="{{ path('app_login') }}">Connecte-toi !</a>
+            <a href="{{ path('inscription') }}">Inscrits-toi !</a>
+          </ul>
+        </header>
+        
         {% block body %}{% endblock %}
     </body>
 </html>
